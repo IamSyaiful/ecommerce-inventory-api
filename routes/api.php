@@ -13,5 +13,9 @@ Route::get('/user', function (Request $request) {
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::post('/categories', [CategoryController::class, 'store']);
 
-// Endpoint untuk Products
+// Endpoint untuk 
+Route::get('/products/search', [ProductController::class, 'search']);
+Route::post('/products/update-stock', [ProductController::class, 'updateStock']);
+Route::get('/inventory/value', [ProductController::class, 'totalValue']);
+
 Route::apiResource('products', ProductController::class);

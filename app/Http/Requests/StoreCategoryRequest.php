@@ -14,8 +14,17 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // Validasi: wajib diisi, string, maksimal 255 karakter, dan unik di tabel category_products
             'name' => 'required|string|max:255|unique:category_products,name',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Nama kategori wajib diisi.',
+            'name.string' => 'Nama kategori harus berupa teks.',
+            'name.max' => 'Nama kategori tidak boleh lebih dari 255 karakter.',
+            'name.unique' => 'Nama kategori sudah ada, silakan gunakan nama lain.',
         ];
     }
 }

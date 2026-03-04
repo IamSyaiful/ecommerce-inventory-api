@@ -32,7 +32,13 @@ class StoreProductRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => 'Nama produk wajib diisi.',
+            'name.max' => 'Nama produk tidak boleh lebih dari 255 karakter.',
+            'price.required' => 'Harga produk wajib diisi.',
+            'price.numeric' => 'Harga produk harus berupa angka.',
             'price.min' => 'Harga produk tidak boleh negatif.',
+            'stock_quantity.required' => 'Stok produk wajib diisi.',
+            'stock_quantity.integer' => 'Stok produk harus berupa angka bulat.',
             'stock_quantity.min' => 'Stok produk tidak boleh negatif.',
             'category_id.exists' => 'Kategori yang dipilih tidak valid atau tidak ditemukan.',
         ];
