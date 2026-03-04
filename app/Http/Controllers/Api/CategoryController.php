@@ -32,8 +32,9 @@ class CategoryController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'data' => new CategoryResource($category)
-        ], 201); // 201 Created sesuai spesifikasi tes
+            'data' => new CategoryResource($category),
+            'message' => 'Kategori berhasil dibuat'
+        ], 201);
     }
 
     /**
