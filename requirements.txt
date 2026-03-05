@@ -1,0 +1,14 @@
+# System Requirements
+PHP >= 8.14.15
+Composer >= 2.9.5
+MySQL >= 15.1 / MariaDB >= 10.11
+
+# Laravel Framework
+Laravel Framework = 12.53.0
+
+# Third-Party Dependencies (diinstall via Composer)
+php-open-source-saver/jwt-auth = 2.1 (Untuk Autentikasi JWT)
+
+# Catatan: 
+# Semua dependency PHP/Laravel dapat diinstall otomatis dengan menjalankan perintah:
+# composer install

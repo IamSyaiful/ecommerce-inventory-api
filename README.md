@@ -1,59 +1,105 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# E-Commerce API (Backend Technical Test)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ini adalah RESTful API untuk sistem manajemen e-commerce yang dibangun menggunakan Laravel 11. Proyek ini mencakup fitur pengelolaan kategori, produk, manajemen stok, perhitungan nilai inventaris, autentikasi keamanan JWT, dan sistem diskon produk.
 
-## About Laravel
+## 🚀 Fitur yang Tersedia
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* **Manajemen Kategori:** CRUD (Create, Read) kategori produk.
+* **Manajemen Produk:** CRUD (Create, Read, Update, Delete) produk.
+* **Pencarian & Filter:** Cari produk berdasarkan nama dan filter berdasarkan kategori.
+* **Manajemen Stok:** Update stok produk (penambahan/pengurangan berdasarkan transaksi).
+* **Nilai Inventaris:** Hitung otomatis total nilai aset produk (Harga x Stok).
+* **Autentikasi JWT:** Melindungi endpoint manajemen (CRUD) agar hanya dapat diakses oleh Admin.
+* **Sistem Diskon (Bonus):** Pengaturan persentase diskon dengan kalkulasi harga akhir otomatis.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Persyaratan Sistem (Requirements)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Pastikan sistem Anda telah terpasang perangkat lunak berikut:
+* PHP >= 8.2
+* Composer (v2.x)
+* MySQL (v8.x) / MariaDB
+* Laravel Framework (v11.x)
 
-## Learning Laravel
+## 📦 Cara Instalasi & Menjalankan Aplikasi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Ikuti langkah-langkah berurutan berikut untuk menjalankan proyek ini di komputer lokal Anda:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Clone Repositori (atau Ekstrak File ZIP)
+Buka terminal dan arahkan ke direktori tempat Anda menyimpan proyek ini.
 
-## Laravel Sponsors
+### 2. Install Dependencies
+Jalankan perintah berikut untuk mengunduh semua paket yang dibutuhkan Laravel dan JWT:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+composer install
+```
 
-### Premium Partners
+### 3. Konfigurasi Environment
+Salin file bawaan `.env.example` menjadi `.env`:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+cp .env.example .env
+```
 
-## Contributing
+Buka file `.env` menggunakan *text editor* dan sesuaikan kredensial database Anda pada bagian ini:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_anda
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+### 4. Generate Application Key & JWT Secret
+Jalankan dua perintah ini untuk membuat kunci keamanan aplikasi dan *secret key* khusus untuk token JWT:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan key:generate
+php artisan jwt:secret
+```
 
-## Security Vulnerabilities
+### 5. Jalankan Migrasi Database
+Buat seluruh tabel yang dibutuhkan ke dalam database yang sudah Anda siapkan:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan migrate
+```
 
-## License
+### 6. Buat Akun Admin (Untuk Login JWT) menggunakan Tinker
+Karena endpoint manajemen produk dikunci dengan JWT, Anda perlu membuat satu akun Admin. Masuk ke environment Tinker dengan perintah:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan tinker
+```
+
+Setelah masuk ke *prompt* Tinker (`>`), *copy-paste* kode berikut dan tekan Enter:
+
+```php
+App\Models\User::create(['name' => 'Admin Toko', 'email' => 'admin@toko.com', 'password' => bcrypt('password123')]);
+```
+
+Jika sudah berhasil membuat *user*, ketik `exit` lalu tekan Enter untuk keluar dari Tinker.
+
+### 7. Jalankan Server Lokal
+Jalankan aplikasi dengan perintah bawaan artisan:
+
+```bash
+php artisan serve
+```
+
+API sekarang berjalan dan dapat diakses melalui `http://127.0.0.1:8000/api`
+
+---
+
+## 📚 Dokumentasi API (Postman)
+
+Dokumentasi lengkap mengenai endpoint, cara penggunaan parameter pencarian, struktur *Request Body*, dan *Response* telah diekspor dalam format **Postman Collection**.
+
+**Cara Penggunaan:**
+1. Temukan file `Postman_Collection_API_Toko.json` di dalam folder root proyek ini.
+2. Buka aplikasi **Postman**, lalu pilih menu **Import**.
+3. Masukkan file JSON tersebut.
+4. **PENTING:** Untuk mengakses *Protected Routes* (seperti Create, Update, Delete produk), jalankan *request* **Login** terlebih dahulu menggunakan email `admin@toko.com` dan password `password123`.
+5. *Copy* Token JWT yang didapat, lalu *Paste* ke dalam tab **Authorization -> Bearer Token** di *request* yang ingin Anda uji.
