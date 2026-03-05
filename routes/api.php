@@ -20,6 +20,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/products/update-stock', [ProductController::class, 'updateStock']);
 
+    Route::post('/products/{id}/discount', [ProductController::class, 'applyDiscount']);
+
     Route::apiResource('products', ProductController::class)->except(['index', 'show']);
     
 });

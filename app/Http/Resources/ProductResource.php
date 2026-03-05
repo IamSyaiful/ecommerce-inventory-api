@@ -14,10 +14,13 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $finalPrice = $this->price - ($this->price * ($this->discount_percentage / 100));
         return [
             'id' => $this->id,
             'name' => $this->name,
             'price' => (float) $this->price,
+            'discount_percentage' => (float) $this->discount_percentage,
+            'final_price' => (float) $finalPrice,
             'stock_quantity' => $this->stock_quantity,
             'category' => [
                 'id' => $this->category_id,

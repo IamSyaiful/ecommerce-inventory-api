@@ -154,4 +154,29 @@ class ProductController extends Controller
             ]
         ], 200);
     }
+
+    public function applyDiscount(Request $request, $id)
+    {
+        $request->validate([
+            'discount_percentage' => 'required|numeric|min:0|max:100'
+        ]);
+
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json(['status' => 'error', 'message' => 'Produk tidak ditemukan'], 404);
+        }
+
+        $product->update([
+            'discount_percentage' => $request->discount_percentage
+        ]);
+
+        $product->load('category');
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Diskon berhasil diterapkan',
+            'data' => new ProductResource($product)
+        ], 200);
+    }
 }
