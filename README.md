@@ -1,6 +1,6 @@
 # E-Commerce API (Backend Technical Test)
 
-Ini adalah RESTful API untuk sistem manajemen e-commerce yang dibangun menggunakan Laravel 11. Proyek ini mencakup fitur pengelolaan kategori, produk, manajemen stok, perhitungan nilai inventaris, autentikasi keamanan JWT, dan sistem diskon produk.
+Ini adalah RESTful API untuk sistem manajemen e-commerce yang dibangun menggunakan Laravel 12. Proyek ini mencakup fitur pengelolaan kategori, produk, manajemen stok, perhitungan nilai inventaris, autentikasi keamanan JWT, dan sistem diskon produk.
 
 ## 🚀 Fitur yang Tersedia
 
@@ -18,7 +18,7 @@ Pastikan sistem Anda telah terpasang perangkat lunak berikut:
 * PHP >= 8.2
 * Composer (v2.x)
 * MySQL (v8.x) / MariaDB
-* Laravel Framework (v11.x)
+* Laravel Framework (v12.x)
 
 ## 📦 Cara Instalasi & Menjalankan Aplikasi
 
