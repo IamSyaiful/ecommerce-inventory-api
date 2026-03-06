@@ -105,8 +105,8 @@ API sekarang berjalan dan dapat diakses melalui `http://127.0.0.1:8000/api`
 Dokumentasi lengkap mengenai endpoint, cara penggunaan parameter pencarian, struktur *Request Body*, dan *Response* telah diekspor dalam format **Postman Collection**.
 
 **Cara Penggunaan:**
-1. Temukan file `Postman_Collection_API_Toko.json` di dalam folder root proyek ini.
+1. Temukan file `E-commerce Inventory API.postman_collection.json` di dalam folder root proyek ini.
 2. Buka aplikasi **Postman**, lalu pilih menu **Import**.
 3. Masukkan file JSON tersebut.
-4. **PENTING:** Untuk mengakses *Protected Routes* (seperti Create, Update, Delete produk), jalankan *request* **Login** terlebih dahulu menggunakan email `admin@toko.com` dan password `password123`.
-5. *Copy* Token JWT yang didapat, lalu *Paste* ke dalam tab **Authorization -> Bearer Token** di *request* yang ingin Anda uji.
+4. **PENTING:** Untuk mengakses *Protected Routes* (seperti Create, Update, Delete produk), jalankan *request* **Login** terlebih dahulu menggunakan email yang sduah di daftarkan ke user admin.
+5. *Copy* Token JWT yang didapat, lalu *Paste* ke dalam tab **Authorization -> Bearer Token** di *request* yang ingin diuji.
