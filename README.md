@@ -3,7 +3,7 @@
 Ini adalah RESTful API untuk sistem manajemen e-commerce yang dibangun menggunakan Laravel 12. Proyek ini mencakup fitur pengelolaan kategori, produk, manajemen stok, perhitungan nilai inventaris, autentikasi keamanan JWT, dan sistem diskon produk.
 
 ## 🎥 Video Demo & Dokumentasi Implementasi API
-Anda dapat melihat video dokumentasi lengkap berdurasi ±8 menit mengenai cara kerja API dan penjelasan struktur kode melalui tautan berikut:
+Anda dapat melihat video dokumentasi lengkap mengenai cara kerja API dan penjelasan struktur kode melalui tautan berikut:
 
 👉 **[Tonton Video Dokumentasi di Sini](https://drive.google.com/drive/folders/1aqtwIjSDwckwL0EzG4qxob5ERH39fh3k?usp=sharing)**
 
